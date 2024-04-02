@@ -64,25 +64,32 @@ Borrow out = A'Bin + A'B + BBin
 
 ```
 
-module no1(a,b,c,sum,carry,D,BO);
-input a,b,c;
-output sum,carry,D,BO;
-assign sum=a^b^c;
-assign carry=(a&b)|(b&c)|(a&c);
-assign D=a^b^c;
-assign BO=(~a&b)|(b&c)|(~a&c);
+module Ex04(df,bo,a,b,bin);
+     output df;
+     output bo;
+     input b;
+     input a;
+     input bin;
+       wire w1,w2,w3;
+			 assign w1=a^b;
+			 assign w2=(~a&b);
+			 assign w3=(~w1&bin);
+			 assign df=w1^bin;
+			 assign bo=w2|w3;
 endmodule
 ```
 
 
 **RTL Schematic**
 
-![WhatsApp Image 2024-03-28 at 00 20 41_4a90ae99](https://github.com/Jeshwanthkumarpayyavula/FULL_ADDER_SUBTRACTOR/assets/145742402/01005df1-4e5e-4a27-975d-97a52ae01387)
+![Screenshot 2024-04-02 093527](https://github.com/Jeshwanthkumarpayyavula/FULL_ADDER_SUBTRACTOR/assets/145742402/57938a9a-950d-478b-aae6-a2b083e5d07a)
+
 
 
 **Output Timing Waveform**
 
-![WhatsApp Image 2024-03-28 at 00 19 16_4415bf0b](https://github.com/Jeshwanthkumarpayyavula/FULL_ADDER_SUBTRACTOR/assets/145742402/5e4b0dea-cf7b-42ac-8fa3-d483181be546)
+![image](https://github.com/Jeshwanthkumarpayyavula/FULL_ADDER_SUBTRACTOR/assets/145742402/77c1b2b5-8b06-4071-b895-db7dfcb1ff74)
+
 
 
 **Result:**
